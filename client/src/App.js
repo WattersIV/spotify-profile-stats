@@ -1,7 +1,12 @@
 import "./sass/main.scss";
 
 function App() {
-  return <h1>Hey</h1>;
+  return (
+    <div className="app">
+      <div className="main">Main Container</div>
+      <div className="sidebar">Sidebar</div>
+    </div>
+  );
 }
 
 export default App;

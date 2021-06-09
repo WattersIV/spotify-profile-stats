@@ -6,6 +6,10 @@
   box-sizing: inherit;
 }
 
+html {
+  background-color: $light-black;
+}
+
 body {
   box-sizing: border-box;
   width: 100%;
