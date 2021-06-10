@@ -7,7 +7,7 @@ require("dotenv").config({ path: __dirname + "/.env" });
 
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = "http://localhost:8000"; // Your redirect uri
+var redirect_uri = "http://localhost:8000/callback/"; // Your redirect uri
 var frontend_uri = "http://localhost:3000";
 /**
  * Generates a random string containing numbers and letters
@@ -55,7 +55,6 @@ app.get("/login", function (req, res) {
 app.get("/callback", function (req, res) {
   // your application requests refresh and access tokens
   // after checking the state parameter
-
   var code = req.query.code || null;
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[stateKey] : null;
