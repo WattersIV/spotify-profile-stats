@@ -1,0 +1,23 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  flex-direction: column;
+
+  &__subtitle {
+    margin-top: 5px;
+  }
+
+  &__button {
+    background-color: $spotify-green;
+    color: $spotify-white;
+    border-radius: 40px;
+    margin-top: 40px;
+    padding: 10px 30px;
+
+    &:hover {
+      background-color: darken($spotify-green, 15%);
+    }
+  }
+}

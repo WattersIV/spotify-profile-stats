@@ -1,11 +1,19 @@
 import "./sass/main.scss";
+import Login from "./components/Login";
 
 function App() {
+  const login = false;
   return (
-    <div className="app">
-      <div className="main">Main Container</div>
-      <div className="sidebar">Sidebar</div>
-    </div>
+    <body className="app">
+      {login ? (
+        <>
+          <div className="main">Main Container</div>
+          <div className="sidebar">Sidebar</div>
+        </>
+      ) : (
+        <Login />
+      )}
+    </body>
   );
 }
 
