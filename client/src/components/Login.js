@@ -7,7 +7,7 @@ export default function Login() {
     <div className="login">
       <h1>Welcome To Spotify Profile Data</h1>
       <h2 className="login__subtitle">Log in to see your stats</h2>
-      <Button className="login__button" classhref={loginURI}>
+      <Button className="login__button" href={loginURI}>
         Log In To Spotify
       </Button>
     </div>

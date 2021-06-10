@@ -7,7 +7,7 @@ require("dotenv").config({ path: __dirname + "/.env" });
 
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = "http://localhost:5000"; // Your redirect uri
+var redirect_uri = "http://localhost:8000"; // Your redirect uri
 var frontend_uri = "http://localhost:3000";
 /**
  * Generates a random string containing numbers and letters
