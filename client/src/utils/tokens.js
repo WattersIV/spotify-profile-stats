@@ -1,4 +1,5 @@
-const tokenExperation = 3600000; // 1 hrs in milliseconds. This is determined my spotify and cant be made any longer
+const tokenExperation = 1;
+// 3600000; // 1 hrs in milliseconds. This is determined my spotify and cant be made any longer
 
 const setTokenExpiry = () =>
   window.localStorage.setItem("access_token_timestamp", Date.now());
@@ -32,11 +33,17 @@ const decodeTokens = () => {
 
 const refreshAccessToken = async () => {
   //Calling our server to make the call for a refresh token need refresh_token= val in query
-  const response = await fetch(
-    `http://localhost:8000/refresh_token?refresh_token=${getLocalRefreshToken()}`
-  );
-  const data = await response.json();
-  console.log(data);
+  try {
+    const response = await fetch(
+      `http://localhost:8000/refresh_token?refresh_token=${getLocalRefreshToken()}`
+    );
+    const data = await response.json(); //returns obj with only key being access_token
+    const { access_token } = data;
+    setLocalAccessToken(access_token);
+    window.location.reload();
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const retrieveAccessToken = () => {
@@ -56,7 +63,6 @@ const retrieveAccessToken = () => {
   }
 
   //If local access token exists and not expired return it
-
   return localAccessToken;
 };
 
