@@ -20,7 +20,9 @@ export default function User() {
       {profile ? (
         <div className="user">
           <div className="user__picture">
-            {profile.images.length ? null : (
+            {profile.images.length ? (
+              <img src={profile.images[0].src} alt="profile icon" />
+            ) : (
               <div className="user__picture--circle">
                 <PersonIcon className="user__picture--default" />
               </div>
