@@ -12,6 +12,11 @@
 
 .main {
   grid-row: 1 / 2;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px;
+  display: flex;
 
   @media (min-width: 770px) {
     grid-column: 2 / 3;

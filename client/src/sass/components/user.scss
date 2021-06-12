@@ -1,0 +1,54 @@
+.user {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+
+  &__picture {
+    height: 200px;
+    width: 200px;
+
+    &--circle {
+      border: 2px solid $spotify-white;
+      border-radius: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--default {
+      height: 90%;
+      width: 90%;
+    }
+  }
+
+  &__name {
+    padding-top: 20px;
+
+    &--text {
+      font-size: $font-xxxl;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: (1fr 1fr 1fr);
+    gap: 30px;
+    margin-top: 20px;
+
+    &--stat {
+      color: $spotify-green;
+      display: flex;
+      justify-content: center;
+      font-size: $font-md;
+    }
+
+    &--header {
+      padding-top: 10px;
+      color: $light-grey;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
