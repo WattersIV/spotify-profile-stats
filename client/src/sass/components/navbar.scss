@@ -1,0 +1,15 @@
+.nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &--spotify-logo {
+    display: none;
+    height: 60px;
+    width: 60px;
+    @media (min-width: 770px) {
+      display: flex;
+    }
+  }
+}

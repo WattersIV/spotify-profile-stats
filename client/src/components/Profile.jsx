@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import User from "./User";
+import Navbar from "./Navbar";
 
 export default function Profile() {
   return (
     <>
       <div className="sidebar">
-        <h1>SIDEBAR</h1>
+        <Navbar />
       </div>
       <div className="main">
-        <h1>PROFILE PAGE</h1>
+        <User />
       </div>
     </>
   );

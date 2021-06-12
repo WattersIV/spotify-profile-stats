@@ -1,5 +1,4 @@
-const tokenExperation = 1;
-// 3600000; // 1 hrs in milliseconds. This is determined my spotify and cant be made any longer
+const tokenExperation = 3600000; // 1 hrs in milliseconds. This is determined my spotify and cant be made any longer
 
 const setTokenExpiry = () =>
   window.localStorage.setItem("access_token_timestamp", Date.now());
@@ -26,8 +25,10 @@ const decodeTokens = () => {
   //Returns the uri string starting at the first char after #
   const encodedString = window.location.hash.substring(1);
   const matches = [...encodedString.matchAll(decodeRegex)];
-  decodedTokens[matches[0][1]] = decodeURIComponent(matches[0][2]);
-  decodedTokens[matches[1][1]] = decodeURIComponent(matches[1][2]);
+  if (matches.length) {
+    decodedTokens[matches[0][1]] = decodeURIComponent(matches[0][2]);
+    decodedTokens[matches[1][1]] = decodeURIComponent(matches[1][2]);
+  }
   return decodedTokens;
 };
 
