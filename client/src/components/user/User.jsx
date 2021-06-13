@@ -4,6 +4,8 @@ import { getUserData } from "../../api/spotify";
 import PersonIcon from "@material-ui/icons/Person";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import PlayingNow from "./PlayingNow";
+import TopArtists from "./TopArtists";
+import TopSongs from "./TopSongs";
 const lookup = require("country-code-lookup");
 
 export default function User() {
@@ -54,6 +56,14 @@ export default function User() {
             </div>
           </div>
           {listening && <PlayingNow listening={listening} />}
+          <div className="user__top-played">
+            <div className="user__top-played--section">
+              <TopSongs />
+            </div>
+            <div className="user__top-played--section">
+              <TopArtists />
+            </div>
+          </div>
         </div>
       ) : (
         <CircularProgress className="loading" />
