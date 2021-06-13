@@ -12,6 +12,8 @@ const getProfileData = () => {
       return reject({ error: data.error });
     }
     return resolve(data);
+  }).catch((err) => {
+    console.log(err);
   });
 };
 
@@ -22,16 +24,31 @@ const getCurrentSong = () => {
       "https://api.spotify.com/v1/me/player/currently-playing",
       { headers }
     );
+
+    console.log(response.status, response.status === 204);
+    if (response.status === 204) {
+      console.log("IM IN");
+      return reject(null);
+    }
+
     const data = await response.json();
     if (data.error) {
       return reject({ error: data.error });
     }
     return resolve(data);
+  }).catch((err) => {
+    console.log(err);
   });
 };
 
 export const getUserData = async () => {
   return await Promise.all([getProfileData(), getCurrentSong()]).then(
-    (data) => data
+    (data) => {
+      console.log(data);
+      if (!data) {
+        return null;
+      }
+      return data;
+    }
   );
 };

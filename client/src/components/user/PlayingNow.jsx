@@ -2,7 +2,6 @@ import React from "react";
 
 export default function PlayingNow(props) {
   const { listening } = props;
-  console.log(listening);
   return (
     <div className="playing-now">
       <h2 className="playing-now--title">Playing Now</h2>
