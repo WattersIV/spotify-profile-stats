@@ -71,10 +71,10 @@ export default function User() {
           {songs && artists && (
             <div className="user__top-played">
               <div className="user__top-played--section">
-                <TopSongs />
+                <TopSongs songs={songs} />
               </div>
               <div className="user__top-played--section">
-                <TopArtists />
+                <TopArtists artists={artists} />
               </div>
             </div>
           )}
