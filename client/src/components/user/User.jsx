@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { getUserData } from "../api/spotify";
+import { getUserData } from "../../api/spotify";
 import PersonIcon from "@material-ui/icons/Person";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import PlayingNow from "./PlayingNow";
 const lookup = require("country-code-lookup");
 
 export default function User() {
@@ -11,11 +12,12 @@ export default function User() {
   useEffect(() => {
     getUserData().then((data) => {
       const profileData = data[0];
-      const ListeningData = data[1];
+      const listeningData = data[1];
       const userCountry = lookup.byInternet(profileData.country).country;
       profileData.country = userCountry;
+      console.log(listeningData);
       setProfile(profileData);
-      setListening(data[1]);
+      setListening(listeningData);
     });
   }, []);
   return (
@@ -51,6 +53,7 @@ export default function User() {
               <h4 className="user__stats--header">Top Genre</h4>
             </div>
           </div>
+          {listening && <PlayingNow listening={listening} />}
         </div>
       ) : (
         <CircularProgress className="loading" />
