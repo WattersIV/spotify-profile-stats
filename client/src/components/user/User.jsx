@@ -11,15 +11,23 @@ const lookup = require("country-code-lookup");
 export default function User() {
   const [profile, setProfile] = useState(null);
   const [listening, setListening] = useState(null);
+  const [songs, setSongs] = useState(null);
+  const [artists, setArtists] = useState(null);
+  const [following, setFollowing] = useState(null);
   useEffect(() => {
     getUserData().then((data) => {
       const profileData = data[0];
       const listeningData = data[1];
+      const songData = data[2];
+      const artistData = data[3];
+      const followingData = data[4];
       const userCountry = lookup.byInternet(profileData.country).country;
       profileData.country = userCountry;
-      console.log(listeningData);
       setProfile(profileData);
       setListening(listeningData);
+      setSongs(songData);
+      setArtists(artistData);
+      setFollowing(followingData);
     });
   }, []);
   return (
@@ -51,19 +59,25 @@ export default function User() {
             </div>
 
             <div className="user__stats--section">
-              <h2 className="user__stats--stat">EDM</h2>
-              <h4 className="user__stats--header">Top Genre</h4>
+              {following && (
+                <h2 className="user__stats--stat">
+                  {following.artists.items.length}
+                </h2>
+              )}
+              <h4 className="user__stats--header">Following</h4>
             </div>
           </div>
           {listening && <PlayingNow listening={listening} />}
-          <div className="user__top-played">
-            <div className="user__top-played--section">
-              <TopSongs />
+          {songs && artists && (
+            <div className="user__top-played">
+              <div className="user__top-played--section">
+                <TopSongs />
+              </div>
+              <div className="user__top-played--section">
+                <TopArtists />
+              </div>
             </div>
-            <div className="user__top-played--section">
-              <TopArtists />
-            </div>
-          </div>
+          )}
         </div>
       ) : (
         <CircularProgress className="loading" />

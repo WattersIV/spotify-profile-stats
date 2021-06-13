@@ -59,14 +59,32 @@ const getTopListening = (term, type, limit) => {
   });
 };
 
+const getFollowingCount = () => {
+  return new Promise(async (resolve, reject) => {
+    const response = await fetch(
+      "https://api.spotify.com/v1/me/following?type=artist",
+      {
+        headers,
+      }
+    );
+    const data = await response.json();
+    if (data.error) {
+      return reject({ error: data.error });
+    }
+    return resolve(data);
+  }).catch((err) => {
+    console.log(err);
+  });
+};
+
 export const getUserData = async () => {
   return await Promise.all([
     getProfileData(),
     getCurrentSong(),
     getTopListening("long_term", "tracks", 5),
     getTopListening("long_term", "artists", 5),
+    getFollowingCount(),
   ]).then((data) => {
-    console.log(data);
     if (!data) {
       return null;
     }
