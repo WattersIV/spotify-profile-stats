@@ -7,11 +7,15 @@ const lookup = require("country-code-lookup");
 
 export default function User() {
   const [profile, setProfile] = useState(null);
+  const [listening, setListening] = useState(null);
   useEffect(() => {
     getUserData().then((data) => {
-      const userCountry = lookup.byInternet(data.country).country;
-      data.country = userCountry;
-      setProfile(data);
+      const profileData = data[0];
+      const ListeningData = data[1];
+      const userCountry = lookup.byInternet(profileData.country).country;
+      profileData.country = userCountry;
+      setProfile(profileData);
+      setListening(data[1]);
     });
   }, []);
   return (
@@ -49,7 +53,7 @@ export default function User() {
           </div>
         </div>
       ) : (
-        <CircularProgress />
+        <CircularProgress className="loading" />
       )}
     </>
   );
