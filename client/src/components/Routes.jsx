@@ -1,8 +1,8 @@
 import React from "react";
-import {Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import User from "./user/User";
-import Artists from "./Artists";
-import Tracks from "./Tracks";
+import Artists from "./artists/Artists";
+import Tracks from "./tracks/Tracks";
 
 export default function Routes() {
   return (

@@ -1,4 +1,5 @@
 @import "abstracts/variables";
+@import "abstracts/globals";
 
 @import "base/base";
 @import "base/typography";
@@ -12,3 +13,4 @@
 
 @import "layout/app";
 @import "layout/login";
+@import "layout/tracks-artists";
