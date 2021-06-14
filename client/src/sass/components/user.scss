@@ -79,7 +79,8 @@
     @media (min-width: 770px) {
       width: 100%;
       padding: 0;
-      justify-content: space-between;
+      margin-top: 100px;
+      justify-content: flex-end;
     }
   }
 }
