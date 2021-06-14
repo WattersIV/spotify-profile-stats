@@ -3,6 +3,7 @@ import SpotifyLogo from "../images/SpotifyLogo";
 import PersonIcon from "@material-ui/icons/Person";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import MicIcon from "@material-ui/icons/Mic";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -11,9 +12,15 @@ export default function Navbar() {
         <SpotifyLogo />
       </div>
       <div className="nav__middle-icons">
-        <PersonIcon className="nav__middle-icons--icon" />
-        <MusicNoteIcon className="nav__middle-icons--icon" />
-        <MicIcon className="nav__middle-icons--icon" />
+        <Link to="/">
+          <PersonIcon className="nav__middle-icons--icon" />
+        </Link>
+        <Link to="/tracks">
+          <MusicNoteIcon className="nav__middle-icons--icon" />
+        </Link>
+        <Link to="/artists">
+          <MicIcon className="nav__middle-icons--icon" />
+        </Link>
       </div>
     </div>
   );
