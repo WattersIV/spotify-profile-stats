@@ -1,5 +1,5 @@
 import React from "react";
-import User from "./user/User";
+import Routes from "./Routes";
 import Navbar from "./Navbar";
 
 export default function Profile() {
@@ -9,7 +9,7 @@ export default function Profile() {
         <Navbar />
       </div>
       <div className="main">
-        <User />
+        <Routes />
       </div>
     </>
   );
