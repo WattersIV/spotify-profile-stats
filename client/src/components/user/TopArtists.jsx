@@ -2,10 +2,9 @@ import React from "react";
 
 export default function TopArtists(props) {
   const { artists } = props;
-  console.log(artists);
   return (
     <ul className="top-artists">
-      <h1>Top 5 Artists</h1>
+      <h2>Top 5 Artists of All Time</h2>
       {artists.items.map((artist) => {
         return (
           <li className="top-artists__artist" key={artist.name}>

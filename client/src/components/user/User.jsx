@@ -69,14 +69,14 @@ export default function User() {
           </div>
           {listening && <PlayingNow listening={listening} />}
           {songs && artists && (
-            <div className="user__top-played">
-              <div className="user__top-played--section">
+            <ul className="user__top-played">
+              <li className="user__top-played--section" key="songs">
                 <TopSongs songs={songs} />
-              </div>
-              <div className="user__top-played--section">
-                <TopArtists artists={artists} />
-              </div>
-            </div>
+              </li>
+              <li className="user__top-played--section">
+                <TopArtists artists={artists} key="artists" />
+              </li>
+            </ul>
           )}
         </div>
       ) : (
