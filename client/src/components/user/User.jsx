@@ -17,14 +17,16 @@ export default function User() {
   useEffect(() => {
     getUserData().then((data) => {
       const profileData = data[0];
-      const listeningData = data[1] || null;
+      const listeningData = data[1];
       const songData = data[2];
       const artistData = data[3];
       const followingData = data[4];
       const userCountry = lookup.byInternet(profileData.country).country;
       profileData.country = userCountry;
       setProfile(profileData);
-      setListening(listeningData);
+      if (listeningData) {
+        setListening(listeningData);
+      }
       setSongs(songData);
       setArtists(artistData);
       setFollowing(followingData);
