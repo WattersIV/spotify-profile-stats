@@ -61,6 +61,10 @@
 
     &--section:not(:first-child) {
       margin-top: 20px;
+
+      @media (min-width: 770px) {
+        margin-top: 0;
+      }
     }
 
     @media (min-width: 770px) {
@@ -69,8 +73,13 @@
       justify-content: center;
 
       &--section {
-        width: 50%;
+        width: 40%;
       }
+    }
+    @media (min-width: 770px) {
+      width: 100%;
+      padding: 0;
+      justify-content: space-between;
     }
   }
 }

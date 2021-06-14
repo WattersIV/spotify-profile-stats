@@ -5,9 +5,14 @@
   margin: 15px auto;
   align-items: center;
 
-  &__image {
-    height: 100%;
-    width: 100%;
+  &__art {
+    height: 200px;
+    width: 200px;
+
+    @media (min-width: 770px) {
+      height: auto;
+      width: auto;
+    }
   }
 
   &--title {
@@ -23,6 +28,10 @@
     &--text {
       text-align: center;
       padding-top: 5px;
+    }
+
+    &--artist {
+      color: $light-grey;
     }
   }
 }

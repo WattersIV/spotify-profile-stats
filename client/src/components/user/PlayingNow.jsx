@@ -14,7 +14,7 @@ export default function PlayingNow(props) {
       <div className="playing-now__info">
         <h2 className="playing-now__info--song">{listening.item.name}</h2>
         <h3 className="playing-now__info--artist">
-          {listening.item.artists[0].name}
+          {listening.item.artists[0].name} - {listening.item.album.name}
         </h3>
       </div>
     </div>

@@ -12,14 +12,7 @@ export default function LoadMore(props) {
         const newData = await loadMoreTopListening(fetchMoreUrl);
         update({
           next: newData.next,
-          items: [
-            ...current.items,
-            newData.items[0],
-            newData.items[1],
-            newData.items[2],
-            newData.items[3],
-            newData.items[4],
-          ],
+          items: [...current.items, ...newData.items],
         });
       }}
     >
