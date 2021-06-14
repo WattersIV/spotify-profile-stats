@@ -17,7 +17,7 @@ export default function User() {
   useEffect(() => {
     getUserData().then((data) => {
       const profileData = data[0];
-      const listeningData = data[1];
+      const listeningData = data[1] || null;
       const songData = data[2];
       const artistData = data[3];
       const followingData = data[4];

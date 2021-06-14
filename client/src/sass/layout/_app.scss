@@ -15,7 +15,6 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
   display: flex;
 
   @media (min-width: 770px) {
@@ -26,10 +25,19 @@
 
 .sidebar {
   grid-row: 2 / 3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: $mobile-nav-height;
 
   @media (min-width: 770px) {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: $desktop-nav-width;
   }
 }
 
