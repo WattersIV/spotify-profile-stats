@@ -2,6 +2,10 @@ import React from "react";
 
 export default function PlayingNow(props) {
   const { listening } = props;
+
+  // If its an add dont render anything
+  if (listening.item === null) return;
+
   return (
     <div className="playing-now">
       <h2 className="playing-now--title">Playing Now</h2>
