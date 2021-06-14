@@ -59,6 +59,17 @@ const getTopListening = (term, type, limit) => {
   });
 };
 
+export const loadMoreTopListening = async (url) => {
+  try {
+    console.log(url);
+    const response = await fetch(`${url}`, { headers });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const getFollowingCount = () => {
   return new Promise(async (resolve, reject) => {
     const response = await fetch(

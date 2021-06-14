@@ -71,10 +71,10 @@ export default function User() {
           {songs && artists && (
             <ul className="user__top-played">
               <li className="user__top-played--section" key="songs">
-                <TopSongs songs={songs} />
+                <TopSongs songs={songs} setSongs={setSongs} />
               </li>
-              <li className="user__top-played--section">
-                <TopArtists artists={artists} key="artists" />
+              <li className="user__top-played--section" key="artists">
+                <TopArtists artists={artists} setArtists={setArtists} />
               </li>
             </ul>
           )}

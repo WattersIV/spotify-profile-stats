@@ -1,7 +1,8 @@
 import React from "react";
+import LoadMore from "./LoadMore";
 
 export default function TopArtists(props) {
-  const { artists } = props;
+  const { artists, setArtists } = props;
   return (
     <ul className="top-artists">
       <h2>Top 5 Artists of All Time</h2>
@@ -21,6 +22,11 @@ export default function TopArtists(props) {
           </li>
         );
       })}
+      <LoadMore
+        fetchMoreUrl={artists.next}
+        update={setArtists}
+        current={artists}
+      />
     </ul>
   );
 }

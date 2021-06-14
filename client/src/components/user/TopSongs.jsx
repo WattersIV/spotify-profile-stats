@@ -1,11 +1,14 @@
 import React from "react";
+import LoadMore from "./LoadMore";
 
 export default function TopSongs(props) {
-  const { songs } = props;
+  const { songs, setSongs } = props;
   return (
     <ul className="top-songs">
       <h2>Top 5 Songs of All Time</h2>
       {songs.items.map((song) => {
+        console.log("rendering song", song);
+        if (song === undefined) return;
         return (
           <li className="top-songs__song" key={song.name}>
             <div className="top-songs__song--image-container">
@@ -24,6 +27,7 @@ export default function TopSongs(props) {
           </li>
         );
       })}
+      <LoadMore fetchMoreUrl={songs.next} update={setSongs} current={songs} />
     </ul>
   );
 }
