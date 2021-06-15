@@ -43,7 +43,7 @@ const getCurrentSong = () => {
 //long_term -> all time
 //medium_term -> 6 months
 //short_term -> 4 weeks
-const getTopListening = (term, type, limit) => {
+export const getTopListening = (term, type, limit) => {
   return new Promise(async (resolve, reject) => {
     const response = await fetch(
       `https://api.spotify.com/v1/me/top/${type}?time_range=${term}&limit=${limit}`,

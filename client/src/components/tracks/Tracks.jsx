@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { getTopListening } from "../../api/spotify";
 
 export default function Tracks() {
-  const [timeRange, setTimeRange] = useState("");
+  const [timeRange, setTimeRange] = useState("long_term");
   const [tracks, setTracks] = useState(null);
   useEffect(() => {
     // fetch based on new time range
     console.log(timeRange);
   }, [timeRange]);
+
   useEffect(() => {
     // First render needs to get the long term tracks on state change fetch a new length
+    async function getTracks() {
+      const tracksData = await getTopListening(timeRange, "tracks", 50);
+      setTracks(tracksData);
+    }
+    getTracks();
   }, []);
   return (
     <div className="t-a">
