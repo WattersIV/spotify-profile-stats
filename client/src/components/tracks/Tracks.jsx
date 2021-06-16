@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTopListening } from "../../api/spotify";
+import SamplePlayer from "./SamplePlayer";
 
 export default function Tracks() {
   const [timeRange, setTimeRange] = useState("long_term");
@@ -81,6 +82,9 @@ export default function Tracks() {
                     </h5>
                   </div>
                 </div>
+                {track.preview_url && (
+                  <SamplePlayer url={track.preview_url} name={track.name} />
+                )}
               </li>
             );
           })}

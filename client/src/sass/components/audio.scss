@@ -1,0 +1,18 @@
+.audio-player {
+  display: flex;
+  align-items: center;
+}
+
+.audio-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 2px solid $spotify-white;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: 0.1s ease 0s;
+
+  &:hover {
+    height: 42px;
+    width: 42px;
+  }
+}
