@@ -29,7 +29,13 @@ export default function Artists() {
         <>
           <h1>Top Artists</h1>
           <ul className="t-a__selectors">
-            <li className="t-a__selectors--item">
+            <li
+              className={
+                timeRange === "long_term"
+                  ? "t-a__selectors--item button-underline"
+                  : "t-a__selectors--item"
+              }
+            >
               <button
                 onClick={() => {
                   setTimeRange("long_term");
@@ -39,7 +45,13 @@ export default function Artists() {
                 All Time
               </button>
             </li>
-            <li className="t-a__selectors--item">
+            <li
+              className={
+                timeRange === "medium_term"
+                  ? "t-a__selectors--item button-underline"
+                  : "t-a__selectors--item"
+              }
+            >
               <button
                 onClick={() => {
                   setTimeRange("medium_term");
@@ -49,7 +61,13 @@ export default function Artists() {
                 6 Months
               </button>
             </li>
-            <li className="t-a__selectors--item">
+            <li
+              className={
+                timeRange === "short_term"
+                  ? "t-a__selectors--item button-underline"
+                  : "t-a__selectors--item"
+              }
+            >
               <button
                 onClick={() => {
                   setTimeRange("short_term");
@@ -74,7 +92,7 @@ export default function Artists() {
                     className="artist__img-container--picture"
                   />
                 </div>
-                <h5>{artist.name}</h5>
+                <h5 className="artist--name">{artist.name}</h5>
               </li>
             );
           })}
