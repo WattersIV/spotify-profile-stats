@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getTopListening } from "../../api/spotify";
 import SamplePlayer from "./SamplePlayer";
+import { useWindowWidth } from "@react-hook/window-size";
 
 export default function Tracks() {
   const [timeRange, setTimeRange] = useState("long_term");
   const [tracks, setTracks] = useState(null);
+  const width = useWindowWidth();
   useEffect(() => {
     // fetch based on new time range
     async function getTracks() {
@@ -76,10 +78,17 @@ export default function Tracks() {
                 <div className="track__info">
                   <h3>{track.name}</h3>
                   <div className="track__info--artist">
-                    <h5>
-                      {" "}
-                      {`${track.album.artists[0].name} - ${track.album.name}`}{" "}
-                    </h5>
+                    {width < 500 ? (
+                      <div className="mobile-artist">
+                        <h5>{track.album.artists[0].name}</h5>
+                        <h5>{track.album.name}</h5>
+                      </div>
+                    ) : (
+                      <h5>
+                        {" "}
+                        {`${track.album.artists[0].name} - ${track.album.name}`}{" "}
+                      </h5>
+                    )}
                   </div>
                 </div>
                 {track.preview_url && (
