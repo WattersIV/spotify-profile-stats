@@ -12,10 +12,32 @@
   }
   &__selectors {
     display: flex;
-    max-width: 200px;
-    width: 100%;
+    width: 200px;
     justify-content: space-between;
     padding-top: 20px;
+
+    &--item {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: calc(100% - 5px);
+        margin: auto;
+        height: 2px;
+        bottom: -4px;
+        left: 5px;
+        background-color: $spotify-white;
+        transform: scaleX(0);
+        transition: all 0.25s linear;
+        display: block;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+        visibility: visible;
+      }
+    }
   }
 
   @media (min-width: 770px) {
