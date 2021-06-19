@@ -12,15 +12,24 @@ export default function Navbar() {
         <SpotifyLogo />
       </div>
       <div className="nav__middle-icons">
-        <Link to="/">
-          <PersonIcon className="nav__middle-icons--icon" />
-        </Link>
-        <Link to="/tracks">
-          <MusicNoteIcon className="nav__middle-icons--icon" />
-        </Link>
-        <Link to="/artists">
-          <MicIcon className="nav__middle-icons--icon" />
-        </Link>
+        <div className="nav__middle-icons--unit">
+          <Link to="/">
+            <PersonIcon className="nav__middle-icons--icon" />
+          </Link>
+          <h4>Profile</h4>
+        </div>
+        <div className="nav__middle-icons--unit">
+          <Link to="/tracks">
+            <MusicNoteIcon className="nav__middle-icons--icon" />
+          </Link>
+          <h4>Profile</h4>
+        </div>
+        <div className="nav__middle-icons--unit">
+          <Link to="/artists">
+            <MicIcon className="nav__middle-icons--icon" />
+          </Link>
+          <h4>Profile</h4>
+        </div>
       </div>
     </div>
   );
