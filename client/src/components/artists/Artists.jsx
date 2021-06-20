@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getTopListening } from "../../api/spotify";
+import Navbar from "../Navbar";
 
 export default function Artists() {
   const [timeRange, setTimeRange] = useState("long_term");
@@ -24,80 +25,87 @@ export default function Artists() {
   }, []);
 
   return (
-    <div className="t-a">
-      <div className="t-a__titles">
-        <>
-          <h1>Top Artists</h1>
-          <ul className="t-a__selectors">
-            <li
-              className={
-                timeRange === "long_term"
-                  ? "t-a__selectors--item button-underline"
-                  : "t-a__selectors--item"
-              }
-            >
-              <button
-                onClick={() => {
-                  setTimeRange("long_term");
-                }}
-                className="rm-button-style"
-              >
-                All Time
-              </button>
-            </li>
-            <li
-              className={
-                timeRange === "medium_term"
-                  ? "t-a__selectors--item button-underline"
-                  : "t-a__selectors--item"
-              }
-            >
-              <button
-                onClick={() => {
-                  setTimeRange("medium_term");
-                }}
-                className="rm-button-style"
-              >
-                6 Months
-              </button>
-            </li>
-            <li
-              className={
-                timeRange === "short_term"
-                  ? "t-a__selectors--item button-underline"
-                  : "t-a__selectors--item"
-              }
-            >
-              <button
-                onClick={() => {
-                  setTimeRange("short_term");
-                }}
-                className="rm-button-style"
-              >
-                4 Weeks
-              </button>
-            </li>
-          </ul>
-        </>
+    <>
+      <div className="sidebar">
+        <Navbar />
       </div>
-      {artists && (
-        <ul className="artists-list">
-          {artists.items.map((artist) => {
-            return (
-              <li key={artist.name} className="artist">
-                <div className="artist__img-container">
-                  <img
-                    src={artist.images[2].url}
-                    alt={`${artist.name} picture`}
-                    className="artist__img-container--picture"
-                  />
-                </div>
-                <h5 className="artist--name">{artist.name}</h5>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
+      <div className="main">
+        <div className="t-a">
+          <div className="t-a__titles">
+            <>
+              <h1>Top Artists</h1>
+              <ul className="t-a__selectors">
+                <li
+                  className={
+                    timeRange === "long_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }
+                >
+                  <button
+                    onClick={() => {
+                      setTimeRange("long_term");
+                    }}
+                    className="rm-button-style"
+                  >
+                    All Time
+                  </button>
+                </li>
+                <li
+                  className={
+                    timeRange === "medium_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }
+                >
+                  <button
+                    onClick={() => {
+                      setTimeRange("medium_term");
+                    }}
+                    className="rm-button-style"
+                  >
+                    6 Months
+                  </button>
+                </li>
+                <li
+                  className={
+                    timeRange === "short_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }
+                >
+                  <button
+                    onClick={() => {
+                      setTimeRange("short_term");
+                    }}
+                    className="rm-button-style"
+                  >
+                    4 Weeks
+                  </button>
+                </li>
+              </ul>
+            </>
+          </div>
+          {artists && (
+            <ul className="artists-list">
+              {artists.items.map((artist) => {
+                return (
+                  <li key={artist.name} className="artist">
+                    <div className="artist__img-container">
+                      <img
+                        src={artist.images[2].url}
+                        alt={`${artist.name} picture`}
+                        className="artist__img-container--picture"
+                      />
+                    </div>
+                    <h5 className="artist--name">{artist.name}</h5>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

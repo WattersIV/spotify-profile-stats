@@ -6,29 +6,50 @@ import MicIcon from "@material-ui/icons/Mic";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  //Could break when going to prod depending on the url
+  const url = window.location.href.split("/")[3];
+
   return (
     <div className="nav">
       <div className="nav--spotify-logo">
         <SpotifyLogo />
       </div>
       <div className="nav__middle-icons">
-        <div className="nav__middle-icons--unit">
+        <div
+          className={
+            url === ""
+              ? "nav__middle-icons--unit selected-item"
+              : "nav__middle-icons--unit"
+          }
+        >
           <Link to="/">
             <PersonIcon className="nav__middle-icons--icon" />
           </Link>
           <h4>Profile</h4>
         </div>
-        <div className="nav__middle-icons--unit">
+        <div
+          className={
+            url === "tracks"
+              ? "nav__middle-icons--unit selected-item"
+              : "nav__middle-icons--unit"
+          }
+        >
           <Link to="/tracks">
             <MusicNoteIcon className="nav__middle-icons--icon" />
           </Link>
-          <h4>Profile</h4>
+          <h4>Songs</h4>
         </div>
-        <div className="nav__middle-icons--unit">
+        <div
+          className={
+            url === "artists"
+              ? "nav__middle-icons--unit selected-item"
+              : "nav__middle-icons--unit"
+          }
+        >
           <Link to="/artists">
             <MicIcon className="nav__middle-icons--icon" />
           </Link>
-          <h4>Profile</h4>
+          <h4>Artists</h4>
         </div>
       </div>
     </div>

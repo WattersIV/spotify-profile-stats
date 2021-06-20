@@ -6,6 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import PlayingNow from "./PlayingNow";
 import TopArtists from "./TopArtists";
 import TopSongs from "./TopSongs";
+import Navbar from "../Navbar";
 const lookup = require("country-code-lookup");
 
 export default function User() {
@@ -34,56 +35,61 @@ export default function User() {
   }, []);
   return (
     <>
-      {/* Need to wait for profile data */}
-      {profile ? (
-        <div className="user">
-          <div className="user__picture">
-            {profile.images.length ? (
-              <img src={profile.images[0].src} alt="profile icon" />
-            ) : (
-              <div className="user__picture--circle">
-                <PersonIcon className="user__picture--default" />
+      <div className="sidebar">
+        <Navbar />
+      </div>
+      <div className="main">
+        {/* Need to wait for profile data */}
+        {profile ? (
+          <div className="user">
+            <div className="user__picture">
+              {profile.images.length ? (
+                <img src={profile.images[0].src} alt="profile icon" />
+              ) : (
+                <div className="user__picture--circle">
+                  <PersonIcon className="user__picture--default" />
+                </div>
+              )}
+            </div>
+            <div className="user__name">
+              <h1 className="user__name--text">{profile.display_name}</h1>
+            </div>
+            <div className="user__stats">
+              <div className="user__stats--section">
+                <h2 className="user__stats--stat">{profile.country}</h2>
+                <h4 className="user__stats--header">Country</h4>
               </div>
+
+              <div className="user__stats--section">
+                <h2 className="user__stats--stat">{profile.followers.total}</h2>
+                <h4 className="user__stats--header">Followers</h4>
+              </div>
+
+              <div className="user__stats--section">
+                {following && (
+                  <h2 className="user__stats--stat">
+                    {following.artists.items.length}
+                  </h2>
+                )}
+                <h4 className="user__stats--header">Following</h4>
+              </div>
+            </div>
+            {listening && <PlayingNow listening={listening} />}
+            {songs && artists && (
+              <ul className="user__top-played">
+                <li className="user__top-played--section" key="songs">
+                  <TopSongs songs={songs} setSongs={setSongs} />
+                </li>
+                <li className="user__top-played--section" key="artists">
+                  <TopArtists artists={artists} setArtists={setArtists} />
+                </li>
+              </ul>
             )}
           </div>
-          <div className="user__name">
-            <h1 className="user__name--text">{profile.display_name}</h1>
-          </div>
-          <div className="user__stats">
-            <div className="user__stats--section">
-              <h2 className="user__stats--stat">{profile.country}</h2>
-              <h4 className="user__stats--header">Country</h4>
-            </div>
-
-            <div className="user__stats--section">
-              <h2 className="user__stats--stat">{profile.followers.total}</h2>
-              <h4 className="user__stats--header">Followers</h4>
-            </div>
-
-            <div className="user__stats--section">
-              {following && (
-                <h2 className="user__stats--stat">
-                  {following.artists.items.length}
-                </h2>
-              )}
-              <h4 className="user__stats--header">Following</h4>
-            </div>
-          </div>
-          {listening && <PlayingNow listening={listening} />}
-          {songs && artists && (
-            <ul className="user__top-played">
-              <li className="user__top-played--section" key="songs">
-                <TopSongs songs={songs} setSongs={setSongs} />
-              </li>
-              <li className="user__top-played--section" key="artists">
-                <TopArtists artists={artists} setArtists={setArtists} />
-              </li>
-            </ul>
-          )}
-        </div>
-      ) : (
-        <CircularProgress className="loading" />
-      )}
+        ) : (
+          <CircularProgress className="loading" />
+        )}
+      </div>
     </>
   );
 }

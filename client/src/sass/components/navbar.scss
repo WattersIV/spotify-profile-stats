@@ -24,7 +24,7 @@
 
     &--unit {
       height: 70px;
-      width: 100px;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -55,14 +55,14 @@
 }
 
 .selected-item {
-  &::after {
+  &::before {
     content: "";
     display: block;
-    height: 5px;
-    width: 100%;
+    height: 10px;
+    width: calc(100vw / 3);
     background-color: $spotify-green;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: -2px;
     left: 0;
   }
 }
