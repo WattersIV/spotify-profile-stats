@@ -22,7 +22,7 @@ export default function Navbar() {
               : "nav__middle-icons--unit"
           }
         >
-          <Link to="/">
+          <Link to="/" className="nav__middle-icons--link">
             <PersonIcon className="nav__middle-icons--icon" />
           </Link>
           <h4>Profile</h4>
@@ -34,7 +34,7 @@ export default function Navbar() {
               : "nav__middle-icons--unit"
           }
         >
-          <Link to="/tracks">
+          <Link to="/tracks" className="nav__middle-icons--link">
             <MusicNoteIcon className="nav__middle-icons--icon" />
           </Link>
           <h4>Songs</h4>
@@ -46,7 +46,7 @@ export default function Navbar() {
               : "nav__middle-icons--unit"
           }
         >
-          <Link to="/artists">
+          <Link to="/artists" className="nav__middle-icons--link">
             <MicIcon className="nav__middle-icons--icon" />
           </Link>
           <h4>Artists</h4>
