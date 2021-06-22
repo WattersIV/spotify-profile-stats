@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getTopListening } from "../../api/spotify";
+import { getArtist, getTopListening } from "../../api/spotify";
+import { useHistory } from "react-router-dom";
 import Navbar from "../Navbar";
 
 export default function Artists() {
   const [timeRange, setTimeRange] = useState("long_term");
   const [artists, setArtists] = useState(null);
+  const history = useHistory()
 
   useEffect(() => {
     // fetch based on new time range
@@ -90,7 +92,7 @@ export default function Artists() {
             <ul className="artists-list">
               {artists.items.map((artist) => {
                 return (
-                  <li key={artist.name} className="artist">
+                  <li key={artist.name} className="artist" onClick={() => history.push(`/artist/${artist.id}`)}>
                     <div className="artist__img-container">
                       <img
                         src={artist.images[2].url}

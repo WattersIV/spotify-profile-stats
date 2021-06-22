@@ -102,3 +102,13 @@ export const getUserData = async () => {
     return data;
   });
 };
+
+export const getArtist = async (artistId) => {
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, { headers, });
+    const data = await response.json()
+    return data
+  } catch (err) {
+    console.log(err)
+  }
+}
