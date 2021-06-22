@@ -36,7 +36,11 @@ export default function Tracks() {
             <>
               <h1>Top Tracks</h1>
               <ul className="t-a__selectors">
-                <li className="t-a__selectors--item">
+                <li className={
+                    timeRange === "long_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }>
                   <button
                     onClick={() => {
                       setTimeRange("long_term");
@@ -46,7 +50,11 @@ export default function Tracks() {
                     All Time
                   </button>
                 </li>
-                <li className="t-a__selectors--item">
+                <li className={
+                    timeRange === "medium_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }>
                   <button
                     onClick={() => {
                       setTimeRange("medium_term");
@@ -56,7 +64,11 @@ export default function Tracks() {
                     6 Months
                   </button>
                 </li>
-                <li className="t-a__selectors--item">
+                <li className={
+                    timeRange === "short_term"
+                      ? "t-a__selectors--item button-underline"
+                      : "t-a__selectors--item"
+                  }>
                   <button
                     onClick={() => {
                       setTimeRange("short_term");
