@@ -1,0 +1,54 @@
+.track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+
+  &__album-art {
+    max-width: 60vw;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 770px) {
+      max-width: 20vw;
+    }
+  }
+
+  &__basic-info {
+    & h1 {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 900;
+    }
+    &--subtext {
+      padding-top: 5px;
+      color: $light-grey;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  &__advanced-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--section {
+      display: flex;
+      width: 100%;
+      max-width: 200px;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}
+
+.stat-title {
+  color: $light-grey;
+}
+
+.stat {
+  color: $spotify-green;
+}

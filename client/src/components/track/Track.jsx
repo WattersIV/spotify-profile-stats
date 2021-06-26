@@ -3,6 +3,7 @@ import { getTrack } from "../../api/spotify";
 import Navbar from "../Navbar";
 import { useWindowWidth } from "@react-hook/window-size";
 import { useParams } from "react-router";
+import PlayOnSpotify from "./PlayOnSpotify";
 
 export default function Artist() {
   const [trackInfo, setTrackInfo] = useState(null);
@@ -15,16 +16,52 @@ export default function Artist() {
       setTrackInfo(data);
     }
     fetchData();
-  }, []);
-
-  console.log(trackInfo);
+  }, [id]);
 
   return (
     <>
       <div className="sidebar">
         <Navbar />
       </div>
-      <div className="main"></div>
+      <div className="main">
+        {trackInfo && (
+          <div className="track">
+            <div className="track__album-art">
+              <img
+                src={
+                  width > 770
+                    ? trackInfo.album.images[0].url
+                    : trackInfo.album.images[1].url
+                }
+                alt={`${trackInfo.name} picture`}
+                className="track__album-art--picture"
+              />
+            </div>
+            <div className="track__basic-info">
+              <h1>{trackInfo.name}</h1>
+              <h3 className="track__basic-info--subtext">
+                {trackInfo.artists[0].name}
+              </h3>
+              <h3 className="track__basic-info--subtext">
+                {trackInfo.album.name}
+              </h3>
+            </div>
+            <div className="track__advanced-info">
+              <div className="track__advanced-info--section">
+                <h2 className="stat">{trackInfo.popularity}%</h2>
+                <h3 className="stat-title">Popularity</h3>
+              </div>
+              <div className="track__advanced-info--section">
+                <h2 className="stat">
+                  {trackInfo.album.release_date.slice(0, 4)}
+                </h2>
+                <h3 className="stat-title">Year</h3>
+              </div>
+            </div>
+            <PlayOnSpotify url={trackInfo.external_urls.spotify} />
+          </div>
+        )}
+      </div>
     </>
   );
 }

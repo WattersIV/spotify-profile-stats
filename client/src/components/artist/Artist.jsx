@@ -15,7 +15,7 @@ export default function Artist() {
       setArtistInfo(data);
     }
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <>
