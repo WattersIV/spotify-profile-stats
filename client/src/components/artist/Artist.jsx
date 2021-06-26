@@ -15,7 +15,17 @@ export default function Artist() {
     fetchData();
   }, []);
 
-  console.log(artistInfo);
+  const humanReadableNum = (num) => {
+    let newNum = "";
+    num = String(num);
+    console.log("post str", num);
+    for (let idx = 0; idx < num.length; idx++) {
+      if (idx % 3 === 0 && idx !== 0) newNum += ",";
+      newNum += num[idx];
+    }
+    return newNum;
+  };
+
   return (
     <>
       <div className="sidebar">
@@ -34,13 +44,21 @@ export default function Artist() {
             <h1 className="center">{artistInfo.name}</h1>
             <div className="artist-info__stats">
               <div className="artist-info__section">
-                <h2>{artistInfo.popularity}</h2>
+                <h2>{artistInfo.popularity}%</h2>
                 <h3 className="title-text">Popularity</h3>
               </div>
               <div className="artist-info__section">
-                <h2>{artistInfo.followers.total}</h2>
+                <h2>{humanReadableNum(artistInfo.followers.total)}</h2>
                 <h3 className="title-text">Followers</h3>
               </div>
+            </div>
+            <div className="artist-info__genres">
+              <ul>
+                {artistInfo.genres.map((genre) => {
+                  return <li key={`${genre}`}>{genre}</li>;
+                })}
+              </ul>
+              <h3>Genres</h3>
             </div>
           </div>
         )}
