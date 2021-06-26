@@ -16,6 +16,10 @@
     &--picture {
       border-radius: 100%;
     }
+
+    @media (min-width: 770px) {
+      max-width: 20vw;
+    }
   }
 
   &__stats {
@@ -32,6 +36,7 @@
 
     & h2 {
       text-align: center;
+      color: $spotify-green;
     }
   }
 
@@ -52,6 +57,7 @@
       font-size: $font-md;
       font-weight: 900;
       text-transform: capitalize;
+      color: $spotify-green;
     }
   }
 }
