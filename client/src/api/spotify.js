@@ -105,10 +105,26 @@ export const getUserData = async () => {
 
 export const getArtist = async (artistId) => {
   try {
-    const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, { headers, });
-    const data = await response.json()
-    return data
+    const response = await fetch(
+      `https://api.spotify.com/v1/artists/${artistId}`,
+      { headers }
+    );
+    const data = await response.json();
+    return data;
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};
+
+export const getTrack = async (trackId) => {
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/tracks/${trackId}`,
+      { headers }
+    );
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};

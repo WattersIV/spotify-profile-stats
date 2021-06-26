@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getTopListening } from "../../api/spotify";
 import SamplePlayer from "./SamplePlayer";
+import { useHistory } from "react-router-dom";
 import { useWindowWidth } from "@react-hook/window-size";
 import Navbar from "../Navbar";
 
@@ -8,6 +9,8 @@ export default function Tracks() {
   const [timeRange, setTimeRange] = useState("long_term");
   const [tracks, setTracks] = useState(null);
   const width = useWindowWidth();
+  const history = useHistory();
+
   useEffect(() => {
     // fetch based on new time range
     async function getTracks() {
@@ -36,11 +39,13 @@ export default function Tracks() {
             <>
               <h1>Top Tracks</h1>
               <ul className="t-a__selectors">
-                <li className={
+                <li
+                  className={
                     timeRange === "long_term"
                       ? "t-a__selectors--item button-underline"
                       : "t-a__selectors--item"
-                  }>
+                  }
+                >
                   <button
                     onClick={() => {
                       setTimeRange("long_term");
@@ -50,11 +55,13 @@ export default function Tracks() {
                     All Time
                   </button>
                 </li>
-                <li className={
+                <li
+                  className={
                     timeRange === "medium_term"
                       ? "t-a__selectors--item button-underline"
                       : "t-a__selectors--item"
-                  }>
+                  }
+                >
                   <button
                     onClick={() => {
                       setTimeRange("medium_term");
@@ -64,11 +71,13 @@ export default function Tracks() {
                     6 Months
                   </button>
                 </li>
-                <li className={
+                <li
+                  className={
                     timeRange === "short_term"
                       ? "t-a__selectors--item button-underline"
                       : "t-a__selectors--item"
-                  }>
+                  }
+                >
                   <button
                     onClick={() => {
                       setTimeRange("short_term");
@@ -85,7 +94,10 @@ export default function Tracks() {
             <ul className="tracks">
               {tracks.items.map((track) => {
                 return (
-                  <li className="track">
+                  <li
+                    className="track"
+                    onClick={() => history.push(`/track/${track.id}`)}
+                  >
                     <div className="track__image-wrapper">
                       <img
                         src={track.album.images[1].url}

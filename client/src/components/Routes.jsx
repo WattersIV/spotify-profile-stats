@@ -4,6 +4,7 @@ import User from "./user/User";
 import Artists from "./artists/Artists";
 import Tracks from "./tracks/Tracks";
 import Artist from "./artist/Artist";
+import Track from "./track/Track";
 
 export default function Routes() {
   return (
@@ -13,6 +14,9 @@ export default function Routes() {
       </Route>
       <Route path="/artists">
         <Artists />
+      </Route>
+      <Route path="/track/:id">
+        <Track />
       </Route>
       <Route path="/tracks">
         <Tracks />
