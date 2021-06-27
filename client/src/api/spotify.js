@@ -128,3 +128,10 @@ export const getTrack = async (trackId) => {
     console.log(err);
   }
 };
+
+export const logout = () => {
+  window.localStorage.removeItem("access_token_timestamp");
+  window.localStorage.removeItem("access_token");
+  window.localStorage.removeItem("refresh_token");
+  window.location.reload();
+};

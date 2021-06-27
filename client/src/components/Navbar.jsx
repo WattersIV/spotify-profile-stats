@@ -12,7 +12,9 @@ export default function Navbar() {
   return (
     <div className="nav">
       <div className="nav--spotify-logo">
-        <SpotifyLogo />
+        <Link to="/" className="nav__middle-icons--link">
+          <SpotifyLogo />
+        </Link>
       </div>
       <div className="nav__middle-icons">
         <div

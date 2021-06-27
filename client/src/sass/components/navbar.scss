@@ -73,7 +73,7 @@
   &::before {
     content: "";
     display: block;
-    height: 10px;
+    height: 5px;
     width: calc(100vw / 3);
     background-color: $spotify-green;
     position: relative;
@@ -84,7 +84,7 @@
       left: calc($desktop-nav-width - 10px);
       top: 0px;
       height: 100px;
-      width: 10px;
+      width: 5px;
       display: inline-block;
       position: absolute;
     }

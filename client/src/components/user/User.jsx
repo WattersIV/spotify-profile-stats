@@ -7,6 +7,7 @@ import PlayingNow from "./PlayingNow";
 import TopArtists from "./TopArtists";
 import TopSongs from "./TopSongs";
 import Navbar from "../Navbar";
+import Logout from "../Logout";
 const lookup = require("country-code-lookup");
 
 export default function User() {
@@ -74,6 +75,7 @@ export default function User() {
                 <h4 className="user__stats--header">Following</h4>
               </div>
             </div>
+            <Logout />
             {listening && <PlayingNow listening={listening} />}
             {songs && artists && (
               <ul className="user__top-played">

@@ -1,0 +1,12 @@
+#logout {
+  background-color: $spotify-green;
+  color: $spotify-white;
+  border-radius: 40px;
+  margin-top: 40px;
+  padding: 10px 30px;
+  width: 200px;
+
+  &:hover {
+    background-color: darken($spotify-green, 15%);
+  }
+}
