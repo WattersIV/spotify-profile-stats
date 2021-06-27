@@ -56,7 +56,6 @@ const retrieveAccessToken = () => {
   if (Date.now() - getTokenExpiry() > tokenExperation && localAccessToken) {
     refreshAccessToken();
   }
-
   //If no local token save new token retrieved
   if (!localAccessToken && access_token) {
     setLocalAccessToken(access_token);
@@ -64,7 +63,7 @@ const retrieveAccessToken = () => {
   }
 
   //If local access token exists and not expired return it
-  return localAccessToken;
+  return localAccessToken || access_token;
 };
 
 export const token = retrieveAccessToken();
