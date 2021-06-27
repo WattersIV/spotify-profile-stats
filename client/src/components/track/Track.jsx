@@ -25,8 +25,8 @@ export default function Artist() {
       </div>
       <div className="main">
         {trackInfo && (
-          <div className="track">
-            <div className="track__album-art">
+          <div className="track-page">
+            <div className="track-page__album-art">
               <img
                 src={
                   width > 770
@@ -34,24 +34,24 @@ export default function Artist() {
                     : trackInfo.album.images[1].url
                 }
                 alt={`${trackInfo.name} picture`}
-                className="track__album-art--picture"
+                className="track-page__album-art--picture"
               />
             </div>
-            <div className="track__basic-info">
+            <div className="track-page__basic-info">
               <h1>{trackInfo.name}</h1>
-              <h3 className="track__basic-info--subtext">
+              <h3 className="track-page__basic-info--subtext">
                 {trackInfo.artists[0].name}
               </h3>
-              <h3 className="track__basic-info--subtext">
+              <h3 className="track-page__basic-info--subtext">
                 {trackInfo.album.name}
               </h3>
             </div>
-            <div className="track__advanced-info">
-              <div className="track__advanced-info--section">
+            <div className="track-page__advanced-info">
+              <div className="track-page__advanced-info--section">
                 <h2 className="stat">{trackInfo.popularity}%</h2>
                 <h3 className="stat-title">Popularity</h3>
               </div>
-              <div className="track__advanced-info--section">
+              <div className="track-page__advanced-info--section">
                 <h2 className="stat">
                   {trackInfo.album.release_date.slice(0, 4)}
                 </h2>
