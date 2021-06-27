@@ -37,6 +37,7 @@
     grid-template-columns: (1fr 1fr 1fr);
     gap: 30px;
     margin-top: 20px;
+    padding: 0 15px;
 
     &--stat {
       color: #{$spotify-green};

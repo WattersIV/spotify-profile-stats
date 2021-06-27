@@ -27,8 +27,8 @@ export default function Navbar() {
         >
           <Link to="/" className="nav__middle-icons--link">
             <PersonIcon className="nav__middle-icons--icon" />
+            <h4 className="nav-title">Profile</h4>
           </Link>
-          <h4>Profile</h4>
         </div>
         <div
           className={
@@ -39,8 +39,8 @@ export default function Navbar() {
         >
           <Link to="/tracks" className="nav__middle-icons--link">
             <MusicNoteIcon className="nav__middle-icons--icon" />
+            <h4 className="nav-title">Songs</h4>
           </Link>
-          <h4>Songs</h4>
         </div>
         <div
           className={
@@ -51,8 +51,8 @@ export default function Navbar() {
         >
           <Link to="/artists" className="nav__middle-icons--link">
             <MicIcon className="nav__middle-icons--icon" />
+            <h4 className="nav-title">Artists</h4>
           </Link>
-          <h4>Artists</h4>
         </div>
         <div className="nav--github-logo">
           <a
