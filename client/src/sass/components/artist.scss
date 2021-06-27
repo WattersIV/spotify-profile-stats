@@ -36,7 +36,7 @@
 
     & h2 {
       text-align: center;
-      color: $spotify-green;
+      color: #{$spotify-green};
     }
   }
 
@@ -57,7 +57,7 @@
       font-size: $font-md;
       font-weight: 900;
       text-transform: capitalize;
-      color: $spotify-green;
+      color: #{$spotify-green};
     }
   }
 }
@@ -70,6 +70,6 @@
 
 .title-text {
   margin-top: 5px;
-  color: $light-grey;
-  font-size: $font-base;
+  color: #{$light-grey};
+  font-size: #{$font-base};
 }

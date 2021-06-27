@@ -1,11 +1,11 @@
 .app {
   display: grid;
-  grid-template-rows: 1fr $mobile-nav-height;
+  grid-template-rows: 1fr #{$mobile-nav-height};
   min-height: 100vh;
   min-width: 100vw;
 
   @media (min-width: 770px) {
-    grid-template-columns: $desktop-nav-width 1fr;
+    grid-template-columns: #{$desktop-nav-width} 1fr;
     grid-template-rows: 1fr;
   }
 }
@@ -29,7 +29,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: $mobile-nav-height;
+  height: #{$mobile-nav-height};
   z-index: 99;
 
   @media (min-width: 770px) {
@@ -38,7 +38,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: $desktop-nav-width;
+    width: #{$desktop-nav-width};
   }
 }
 

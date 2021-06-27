@@ -22,7 +22,7 @@
     }
     &--subtext {
       padding-top: 5px;
-      color: $light-grey;
+      color: #{$light-grey};
       font-weight: 700;
       text-align: center;
     }
@@ -46,9 +46,9 @@
 }
 
 .stat-title {
-  color: $light-grey;
+  color: #{$light-grey};
 }
 
 .stat {
-  color: $spotify-green;
+  color: #{$spotify-green};
 }

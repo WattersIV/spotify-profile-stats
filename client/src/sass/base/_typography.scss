@@ -1,7 +1,7 @@
 body {
-  font-family: $fontStack;
-  color: $spotify-white;
-  font-size: $font-base;
+  font-family: #{$fontStack};
+  color: #{$spotify-white};
+  font-size: #{$font-base};
 }
 
 h4,
