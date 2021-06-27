@@ -3,6 +3,7 @@ import SpotifyLogo from "../images/SpotifyLogo";
 import PersonIcon from "@material-ui/icons/Person";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import MicIcon from "@material-ui/icons/Mic";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -52,6 +53,14 @@ export default function Navbar() {
             <MicIcon className="nav__middle-icons--icon" />
           </Link>
           <h4>Artists</h4>
+        </div>
+        <div className="nav--github-logo">
+          <a
+            href="https://github.com/WattersIV/spotify-profile-stats"
+            className="nav__middle-icons--link"
+          >
+            <GitHubIcon className="github-icon" />
+          </a>
         </div>
       </div>
     </div>

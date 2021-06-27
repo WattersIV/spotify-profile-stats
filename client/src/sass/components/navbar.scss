@@ -17,6 +17,17 @@
     }
   }
 
+  &--github-logo {
+    display: none;
+    height: 60px;
+    width: 60px;
+    @media (min-width: 770px) {
+      display: flex;
+      position: fixed;
+      bottom: 15px;
+    }
+  }
+
   &__middle-icons {
     width: 100%;
     justify-content: space-around;
@@ -88,5 +99,14 @@
       display: inline-block;
       position: absolute;
     }
+  }
+}
+
+.github-icon {
+  fill: $spotify-white;
+  width: 80%;
+  height: 80%;
+  &:hover {
+    fill: darken($spotify-white, 50%);
   }
 }
