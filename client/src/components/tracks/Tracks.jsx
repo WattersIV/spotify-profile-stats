@@ -94,11 +94,11 @@ export default function Tracks() {
             <ul className="tracks">
               {tracks.items.map((track) => {
                 return (
-                  <li
-                    className="track"
-                    onClick={() => history.push(`/track/${track.id}`)}
-                  >
-                    <div className="track__image-wrapper">
+                  <li className="track">
+                    <div
+                      className="track__image-wrapper"
+                      onClick={() => history.push(`/track/${track.id}`)}
+                    >
                       <img
                         src={track.album.images[1].url}
                         alt={`${track.album.name} cover`}

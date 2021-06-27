@@ -19,7 +19,7 @@ export default function TopSongs(props) {
               />
             </div>
             <div className="top-songs__info">
-              <h3 className="top-song__info--name">{song.name}</h3>
+              <h3 className="top-songs__info--name">{song.name}</h3>
               <h5 className="top-songs__info--album">
                 {song.artists[0].name} - {song.album.name}
               </h5>
