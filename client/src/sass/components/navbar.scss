@@ -83,6 +83,9 @@
 }
 
 .selected-item {
+  background-color: lighten($black, 5%);
+  width: 100%;
+
   &::before {
     content: "";
     display: block;
