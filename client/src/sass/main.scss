@@ -5,18 +5,23 @@
 @import "base/typography";
 
 @import "components/navbar";
-@import "components/user";
-@import "components/playing-now.scss";
-@import "components/top-artists.scss";
-@import "components/top-songs.scss";
-@import "components/load-more.scss";
-@import "components/artists.scss";
-@import "components/tracks.scss";
-@import "components/audio.scss";
-@import "components/artist.scss";
-@import "components/track.scss";
-@import "components/play-on-spotify.scss";
 @import "components/logout.scss";
+
+@import "components/user/user";
+@import "components/user/playing-now.scss";
+@import "components/user/load-more.scss";
+@import "components/user/top-artists.scss";
+@import "components/user/top-songs.scss";
+
+@import "components/tracks/audio.scss";
+@import "components/tracks/tracks.scss";
+
+@import "components/track/play-on-spotify.scss";
+@import "components/track/track.scss";
+
+@import "components/artists/artists.scss";
+
+@import "components/artist/artist.scss";
 
 @import "layout/app";
 @import "layout/login";
