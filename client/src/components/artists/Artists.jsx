@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getArtist, getTopListening } from "../../api/spotify";
+import { getTopListening } from "../../api/spotify";
+import InfoIcon from "@material-ui/icons/Info";
 import { useHistory } from "react-router-dom";
 import Navbar from "../Navbar";
 
 export default function Artists() {
   const [timeRange, setTimeRange] = useState("long_term");
   const [artists, setArtists] = useState(null);
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     // fetch based on new time range
@@ -92,13 +93,20 @@ export default function Artists() {
             <ul className="artists-list">
               {artists.items.map((artist) => {
                 return (
-                  <li key={artist.name} className="artist" onClick={() => history.push(`/artist/${artist.id}`)}>
+                  <li
+                    key={artist.name}
+                    className="artist"
+                    onClick={() => history.push(`/artist/${artist.id}`)}
+                  >
                     <div className="artist__img-container">
                       <img
                         src={artist.images[2].url}
                         alt={`${artist.name} picture`}
                         className="artist__img-container--picture"
                       />
+                      <div className="overlay-round">
+                        <InfoIcon className="info-icon lg-icon" />
+                      </div>
                     </div>
                     <h5 className="artist--name">{artist.name}</h5>
                   </li>

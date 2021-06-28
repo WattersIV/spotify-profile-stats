@@ -1,8 +1,11 @@
 import React from "react";
 import LoadMore from "./LoadMore";
+import InfoIcon from "@material-ui/icons/Info";
+import { useHistory } from "react-router-dom";
 
 export default function TopSongs(props) {
   const { songs, setSongs } = props;
+  const history = useHistory();
   return (
     <>
       <h2>Top 5 Songs of All Time</h2>
@@ -11,12 +14,18 @@ export default function TopSongs(props) {
           if (song === undefined) return;
           return (
             <li className="top-songs__song" key={song.name}>
-              <div className="top-songs__song--image-container">
+              <div
+                className="top-songs__song--image-container"
+                onClick={() => history.push(`/track/${song.id}`)}
+              >
                 <img
                   src={song.album.images[2].url}
                   alt={`${song.name} avatar`}
                   className="top-songs__song--image"
                 />
+                <div className="overlay">
+                  <InfoIcon className="info-icon sm-icon" />
+                </div>
               </div>
               <div className="top-songs__info">
                 <h3 className="top-songs__info--name">{song.name}</h3>

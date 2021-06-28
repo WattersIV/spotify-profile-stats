@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getTopListening } from "../../api/spotify";
 import SamplePlayer from "./SamplePlayer";
+import InfoIcon from "@material-ui/icons/Info";
 import { useHistory } from "react-router-dom";
 import { useWindowWidth } from "@react-hook/window-size";
 import Navbar from "../Navbar";
@@ -103,6 +104,9 @@ export default function Tracks() {
                         src={track.album.images[1].url}
                         alt={`${track.album.name} cover`}
                       />
+                      <div className="overlay">
+                        <InfoIcon className="info-icon lg-icon" />
+                      </div>
                     </div>
                     <div className="track__info">
                       <h3>{track.name}</h3>
