@@ -11,7 +11,6 @@ function App() {
     //On page load get tokens
     setAccessToken(token);
   }, []);
-  console.log(token, accessToken);
   return <div className="app">{accessToken ? <Profile /> : <Login />}</div>;
 }
 
