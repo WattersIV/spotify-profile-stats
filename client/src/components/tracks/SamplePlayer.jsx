@@ -10,6 +10,7 @@ export default function SamplePlayer(props) {
     <div className="audio-player">
       {playing ? (
         <button
+          aria-label="play button"
           className={`rm-button-style audio-button`}
           onClick={() => setPlaying(!playing)}
         >

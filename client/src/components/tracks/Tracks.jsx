@@ -101,7 +101,11 @@ export default function Tracks() {
                       onClick={() => history.push(`/track/${track.id}`)}
                     >
                       <img
-                        src={track.album.images[1].url}
+                        src={
+                          width > 770
+                            ? track.album.images[1].url
+                            : track.album.images[2].url
+                        }
                         alt={`${track.album.name} cover`}
                       />
                       <div className="overlay">
@@ -109,7 +113,7 @@ export default function Tracks() {
                       </div>
                     </div>
                     <div className="track__info">
-                      <h3>{track.name}</h3>
+                      <h3 className="track__info--title">{track.name}</h3>
                       <div className="track__info--artist">
                         {width < 500 ? (
                           <div className="mobile-artist">

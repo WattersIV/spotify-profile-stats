@@ -54,6 +54,11 @@
       align-items: center;
       flex-direction: column;
 
+      &:hover {
+        width: 100%;
+        background-color: lighten($black, 5%);
+      }
+
       @media (min-width: 770px) {
         height: 100px;
         align-self: baseline;
