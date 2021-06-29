@@ -36,7 +36,8 @@ const refreshAccessToken = async () => {
   //Calling our server to make the call for a refresh token need refresh_token= val in query
   try {
     const response = await fetch(
-      `http://localhost:8000/refresh_token?refresh_token=${getLocalRefreshToken()}`
+      `https://spotify-profile-stats-server.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}` ||
+        `http://localhost:8000/refresh_token?refresh_token=${getLocalRefreshToken()}`
     );
     const data = await response.json(); //returns obj with only key being access_token
     const { access_token } = data;
