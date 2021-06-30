@@ -5,6 +5,7 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 require("dotenv").config({ path: __dirname + "/.env" });
 
+var PORT = process.env.PORT;
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
 var redirect_uri =
@@ -150,5 +151,5 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
-console.log("Listening on 8080");
-app.listen(8080);
+console.log(`Listening on ${PORT}`);
+app.listen(PORT);
