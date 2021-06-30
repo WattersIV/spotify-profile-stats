@@ -26,10 +26,13 @@
     "type": "git",
     "url": "git+https://github.com/WattersIV/spotify-profile-stats.git"
   },
-  "author": "",
+  "author": "Bill Watters",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WattersIV/spotify-profile-stats/issues"
+  },
+  "engines": {
+    "node": "14.17.0"
   },
   "homepage": "https://github.com/WattersIV/spotify-profile-stats#readme"
 }
