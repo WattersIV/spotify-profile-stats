@@ -5,11 +5,12 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 require("dotenv").config({ path: __dirname + "/.env" });
 
+var PORT = process.env.PORT;
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
 var redirect_uri =
   "https://spotify-profile-stats-server.herokuapp.com/callback" ||
-  "http://localhost:8000/callback/"; // Your redirect uri
+  "http://localhost:8080/callback/"; // Your redirect uri
 var frontend_uri =
   "https://spotify-profile-stats.herokuapp.com/" || "http://localhost:3000";
 /**
@@ -150,5 +151,5 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
-console.log("Listening on 8000");
-app.listen(8000);
+console.log(`Listening on ${PORT}`);
+app.listen(PORT);

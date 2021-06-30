@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 export default function Login() {
   const loginURI =
     "https://spotify-profile-stats-server.herokuapp.com/login" ||
-    "http://localhost:8000/login";
+    "http://localhost:8080/login";
   return (
     <div className="login">
       <h1>Welcome To Spotify Profile Data</h1>

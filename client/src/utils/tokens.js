@@ -37,7 +37,7 @@ const refreshAccessToken = async () => {
   try {
     const response = await fetch(
       `https://spotify-profile-stats-server.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}` ||
-        `http://localhost:8000/refresh_token?refresh_token=${getLocalRefreshToken()}`
+        `http://localhost:8080/refresh_token?refresh_token=${getLocalRefreshToken()}`
     );
     const data = await response.json(); //returns obj with only key being access_token
     const { access_token } = data;
