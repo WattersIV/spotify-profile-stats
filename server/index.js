@@ -10,7 +10,7 @@ var PORT = process.env.PORT;
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
 var redirect_uri =
-  "https://spotify-profile-stats-server.herokuapp.com/callback" ||
+  "https://spotify-profile-stats.herokuapp.com/callback" ||
   `http://localhost:${PORT}/callback/`; // Your redirect uri
 var frontend_uri =
   "https://spotify-profile-stats.herokuapp.com/" || "http://localhost:3000";
