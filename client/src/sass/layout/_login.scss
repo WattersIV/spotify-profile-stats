@@ -6,8 +6,14 @@
   flex-direction: column;
   padding: 10px;
 
+  & > h1 {
+    text-align: center;
+    font-size: clamp(24px, 3vw, 32px);
+  }
+
   &__subtitle {
     margin-top: 5px;
+    font-size: clamp(18px, 2vw, 24px);
   }
 
   &__button {
