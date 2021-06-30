@@ -3,6 +3,7 @@ var request = require("request"); // "Request" library
 var cors = require("cors");
 var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
+const path = require("path");
 require("dotenv").config({ path: __dirname + "/.env" });
 
 var PORT = process.env.PORT;
@@ -34,9 +35,13 @@ var stateKey = "spotify_auth_state";
 var app = express();
 
 app
-  .use(express.static(__dirname + "/public"))
+  .use(express.static(path.resolve(__dirname, "../client/build")))
   .use(cors())
   .use(cookieParser());
+
+app.get("/", function (req, res) {
+  res.render(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 app.get("/login", function (req, res) {
   var state = generateRandomString(16);
@@ -152,12 +157,9 @@ app.get("/refresh_token", function (req, res) {
 });
 
 // This is needed to send the react app for all other requests made to the server
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client/public", "index.html"));
-  });
-}
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/public", "index.html"));
+});
 
 console.log(`Listening on ${PORT}`);
 app.listen(PORT);
