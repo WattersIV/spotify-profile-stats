@@ -2,9 +2,13 @@ import React from "react";
 import { Button } from "@material-ui/core";
 
 export default function Login() {
-  const loginURI =
+  let loginURI =
     "https://spotify-profile-stats-server.herokuapp.com/login" ||
     "http://localhost:8080/login";
+
+  if (process.env.NODE_ENV !== "production") {
+    loginURI = "http://localhost:8080/login";
+  }
   return (
     <div className="login">
       <h1>Welcome To Spotify Profile Data</h1>

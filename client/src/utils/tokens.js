@@ -35,10 +35,13 @@ const decodeTokens = () => {
 const refreshAccessToken = async () => {
   //Calling our server to make the call for a refresh token need refresh_token= val in query
   try {
-    const response = await fetch(
-      `https://spotify-profile-stats-server.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}` ||
-        `http://localhost:8080/refresh_token?refresh_token=${getLocalRefreshToken()}`
-    );
+    let url;
+    if (process.env.NODE_ENV !== "production") {
+      url = `http://localhost:8080/refresh_token?refresh_token=${getLocalRefreshToken()}`;
+    } else {
+      url = `https://spotify-profile-stats-server.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}`;
+    }
+    const response = await fetch(url);
     const data = await response.json(); //returns obj with only key being access_token
     const { access_token } = data;
     setLocalAccessToken(access_token);
