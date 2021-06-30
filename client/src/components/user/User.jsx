@@ -34,6 +34,7 @@ export default function User() {
       setFollowing(followingData);
     });
   }, []);
+  console.log(profile);
   return (
     <>
       <div className="sidebar">
@@ -45,7 +46,11 @@ export default function User() {
           <div className="user">
             <div className="user__picture">
               {profile.images.length ? (
-                <img src={profile.images[0].src} alt="profile icon" />
+                <img
+                  className="user__picture--img"
+                  src={profile.images[0].url}
+                  alt="profile icon"
+                />
               ) : (
                 <div className="user__picture--circle">
                   <PersonIcon className="user__picture--default" />

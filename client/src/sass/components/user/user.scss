@@ -18,6 +18,15 @@
       align-items: center;
     }
 
+    &--img {
+      height: 90%;
+      width: 90%;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     &--default {
       height: 90%;
       width: 90%;
