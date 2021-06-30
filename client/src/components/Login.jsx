@@ -3,7 +3,7 @@ import { Button } from "@material-ui/core";
 
 export default function Login() {
   let loginURI =
-    "https://spotify-profile-stats-server.herokuapp.com/login" ||
+    "https://spotify-profile-stats.herokuapp.com/login" ||
     "http://localhost:8080/login";
 
   if (process.env.NODE_ENV !== "production") {

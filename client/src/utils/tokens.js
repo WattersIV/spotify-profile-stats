@@ -39,7 +39,7 @@ const refreshAccessToken = async () => {
     if (process.env.NODE_ENV !== "production") {
       url = `http://localhost:8080/refresh_token?refresh_token=${getLocalRefreshToken()}`;
     } else {
-      url = `https://spotify-profile-stats-server.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}`;
+      url = `https://spotify-profile-stats.herokuapp.com/refresh_token?refresh_token=${getLocalRefreshToken()}`;
     }
     const response = await fetch(url);
     const data = await response.json(); //returns obj with only key being access_token
