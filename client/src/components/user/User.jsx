@@ -34,7 +34,6 @@ export default function User() {
       setFollowing(followingData);
     });
   }, []);
-  console.log(profile);
   return (
     <>
       <div className="sidebar">
