@@ -151,5 +151,13 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
+// This is needed to send the react app for all other requests made to the server
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/public", "index.html"));
+  });
+}
+
 console.log(`Listening on ${PORT}`);
 app.listen(PORT);
