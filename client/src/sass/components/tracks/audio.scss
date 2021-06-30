@@ -10,6 +10,11 @@
   border: 2px solid #{$spotify-white};
   background-color: rgba(0, 0, 0, 0.3);
   transform: 0.1s ease 0s;
+  margin-right: 5px;
+
+  @media (min-width: 770px) {
+    margin-right: 0px;
+  }
 
   &:hover {
     height: 42px;

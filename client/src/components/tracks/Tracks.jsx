@@ -8,6 +8,7 @@ import Navbar from "../Navbar";
 
 export default function Tracks() {
   const [timeRange, setTimeRange] = useState("long_term");
+  const [songPlaying, setSongPlaying] = useState(null);
   const [tracks, setTracks] = useState(null);
   const width = useWindowWidth();
   const history = useHistory();
@@ -129,7 +130,12 @@ export default function Tracks() {
                       </div>
                     </div>
                     {track.preview_url && (
-                      <SamplePlayer url={track.preview_url} name={track.name} />
+                      <SamplePlayer
+                        url={track.preview_url}
+                        name={track.name}
+                        setSongPlaying={setSongPlaying}
+                        songPlaying={songPlaying}
+                      />
                     )}
                   </li>
                 );

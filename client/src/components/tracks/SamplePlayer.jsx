@@ -4,22 +4,24 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
 
 export default function SamplePlayer(props) {
-  const { url, name } = props;
-  const [playing, setPlaying] = useState(false);
+  const { url, name, setSongPlaying, songPlaying } = props;
+
+  console.log(songPlaying === name, songPlaying, name);
+
   return (
     <div className="audio-player">
-      {playing ? (
+      {songPlaying === name ? (
         <button
           aria-label="play button"
           className={`rm-button-style audio-button`}
-          onClick={() => setPlaying(!playing)}
+          onClick={() => setSongPlaying(null)}
         >
           <PauseIcon />
         </button>
       ) : (
         <button
           className={`rm-button-style audio-button`}
-          onClick={() => setPlaying(!playing)}
+          onClick={() => setSongPlaying(name)}
         >
           <PlayArrowIcon />
         </button>
@@ -27,8 +29,10 @@ export default function SamplePlayer(props) {
       <Sound
         url={url}
         autoLoad={true}
-        playStatus={playing ? Sound.status.PLAYING : Sound.status.STOPPED}
-        onFinishedPlaying={() => setPlaying(false)}
+        playStatus={
+          songPlaying === name ? Sound.status.PLAYING : Sound.status.STOPPED
+        }
+        onFinishedPlaying={() => setSongPlaying(null)}
       />
     </div>
   );
