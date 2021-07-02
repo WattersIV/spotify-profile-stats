@@ -5,8 +5,7 @@
   margin-top: 40px;
   padding: 10px 30px;
   width: 200px;
-  font-weight: 700;
-
+  font-size: #{$font-base};
   &:hover {
     background-color: darken($spotify-green, 15%);
   }

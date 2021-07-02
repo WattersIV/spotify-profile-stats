@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import Disclaimer from "./Disclaimer";
 
 export default function Login() {
   let loginURI =
@@ -16,6 +17,7 @@ export default function Login() {
       <Button className="login__button" href={loginURI}>
         Log In To Spotify
       </Button>
+      <Disclaimer />
     </div>
   );
 }
